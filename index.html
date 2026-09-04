@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIDEF SECUNDERABAD - All India Defence Employees' Federation</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: #800000;
+            color: #ffffff;
+            font-size: 13px;
+            padding: 6px 0;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar-left span {
+            margin-right: 25px;
+        }
+
+        .top-bar-left i {
+            margin-right: 6px;
+        }
+
+        /* Header / Banner */
+        .main-header {
+            background: #ffffff;
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-box {
+            width: 110px;
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-title-box {
+            text-align: center;
+            flex-grow: 1;
+            padding: 0 20px;
+        }
+
+        .header-title-box h1 {
+            color: #c91818;
+            font-size: 40px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            margin-bottom: 4px;
+        }
+
+        .header-title-box h2 {
+            color: #111;
+            font-size: 19px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .header-title-box .tagline-location {
+            font-size: 16px;
+            color: #333;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .header-title-box .tagline-location::before,
+        .header-title-box .tagline-location::after {
+            content: "";
+            display: inline-block;
+            width: 50px;
+            height: 1.5px;
+            background-color: #333;
+        }
+
+        .quote-box {
+            width: 230px;
+            text-align: center;
+            font-style: italic;
+            font-size: 13.5px;
+            color: #222;
+            line-height: 1.35;
+        }
+
+        .quote-box .quote-mark {
+            color: #c91818;
+            font-size: 26px;
+            font-weight: bold;
+            line-height: 0;
+            vertical-align: -6px;
+            margin-right: 4px;
+        }
+
+        .quote-box strong {
+            display: block;
+            margin-bottom: 3px;
+            font-size: 14px;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: linear-gradient(to right, #7b0000 0%, #a40000 15%, #0d274c 18%, #081a33 100%);
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 12px 22px;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: default;
+        }
+
+        .nav-item.active {
+            background-color: #a40000;
+        }
+
+        .nav-item i {
+            margin-right: 8px;
+            font-size: 15px;
+        }
+
+        /* Hero Banner */
+        .hero-banner {
+            position: relative;
+            background: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)),
+                        url('https://images.unsplash.com/photo-1597047084897-51e81819a499?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            padding: 40px 0 35px 0;
+            border-bottom: 2px solid #e0e0e0;
+            text-align: center;
+        }
+
+        .hero-title {
+            color: #0b2545;
+            font-size: 26px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .hero-stars {
+            color: #c91818;
+            font-size: 10px;
+            margin-bottom: 8px;
+        }
+
+        .hero-subtitle {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: #222;
+            line-height: 1.4;
+        }
+
+        /* Main Content Grid */
+        .main-content {
+            padding: 25px 0 35px 0;
+        }
+
+        .grid-3-col {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr 1fr;
+            gap: 20px;
+        }
+
+        /* Cards Standard Style */
+        .card {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
+            border: 1px solid #dfdfdf;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .card:last-child {
+            margin-bottom: 0;
+        }
+
+        .card-header {
+            color: #ffffff;
+            padding: 9px 14px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-header i {
+            margin-right: 8px;
+            font-size: 14px;
+        }
+
+        .card-body {
+            padding: 14px;
+            flex-grow: 1;
+        }
+
+        .card-footer-link {
+            text-align: right;
+            padding: 8px 14px 12px 14px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #8b0000;
+            text-decoration: none;
+            display: block;
+        }
+
+        .card-footer-link:hover {
+            text-decoration: underline;
+        }
+
+        .card-footer-link i {
+            margin-left: 3px;
+        }
+
+        /* Specific Header Colors */
+        .header-red {
+            background-color: #b31010;
+        }
+
+        .header-green {
+            background-color: #0b6b54;
+        }
+
+        .header-purple {
+            background-color: #6a1b9a;
+        }
+
+        .header-blue {
+            background-color: #026ca8;
+        }
+
+        .header-coral {
+            background-color: #d84545;
+        }
+
+        /* Column 1: News & Announcements */
+        .news-link {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #e6e6e6;
+            text-decoration: none;
+            color: inherit;
+            transition: background-color 0.2s;
+        }
+
+        .news-link:hover .news-text {
+            color: #b31010;
+            text-decoration: underline;
+        }
+
+        .news-link:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .date-badge {
+            background-color: #b31010;
+            color: #ffffff;
+            border-radius: 4px;
+            padding: 3px 6px;
+            text-align: center;
+            min-width: 42px;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .date-badge .day {
+            font-size: 15px;
+            font-weight: 800;
+            line-height: 1;
+            display: block;
+        }
+
+        .date-badge .month-year {
+            font-size: 8px;
+            text-transform: uppercase;
+            font-weight: 600;
+            line-height: 1.1;
+        }
+
+        .news-text {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #222;
+            line-height: 1.35;
+        }
+
+        .badge-new {
+            background-color: #b31010;
+            color: #fff;
+            font-size: 9px;
+            font-weight: bold;
+            padding: 1px 5px;
+            border-radius: 3px;
+            margin-left: 4px;
+            display: inline-block;
+            text-decoration: none !important;
+        }
+
+        .announcement-text {
+            font-size: 13px;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        /* Column 2: Government Policies Grid */
+        .policies-card {
+            border: 1px solid #d3d3d3;
+            border-radius: 6px;
+            background: #fff;
+        }
+
+        .policies-card-header {
+            text-align: center;
+            font-weight: 800;
+            font-size: 14.5px;
+            padding: 10px;
+            color: #111;
+            border-bottom: 1px solid #eee;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .policies-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            padding: 15px 10px;
+        }
+
+        .policy-item {
+            border: 1px solid #e1e8ed;
+            border-radius: 4px;
+            padding: 15px 5px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #fbfcfd;
+            min-height: 95px;
+        }
+
+        .policy-item i {
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
+
+        .policy-item span {
+            font-size: 11px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #222;
+            text-transform: uppercase;
+        }
+
+        .icon-pay { color: #1e7e34; }
+        .icon-leave { color: #d97706; }
+        .icon-pension { color: #6f42c1; }
+        .icon-promo { color: #0284c7; }
+        .icon-orders { color: #0f766e; }
+        .icon-dopt { color: #7f1d1d; }
+
+        .policies-footer-link {
+            text-align: center;
+            padding: 8px 0 12px 0;
+            font-size: 12px;
+            font-weight: 700;
+            color: #8b0000;
+            cursor: default;
+        }
+
+        /* Column 2: Recent Documents */
+        .doc-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12px;
+            padding: 6px 0;
+            border-bottom: 1px dashed #e9e9e9;
+        }
+
+        .doc-item:last-child {
+            border-bottom: none;
+        }
+
+        .doc-left {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+            margin-right: 8px;
+        }
+
+        .doc-left i {
+            color: #d32f2f;
+            font-size: 14px;
+            margin-right: 6px;
+        }
+
+        .doc-title {
+            font-weight: 600;
+            color: #222;
+        }
+
+        .doc-date {
+            font-size: 10.5px;
+            color: #666;
+            margin-right: 8px;
+            white-space: nowrap;
+        }
+
+        .btn-download {
+            background-color: #0b4f8a;
+            color: #ffffff;
+            font-size: 9.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 3px 7px;
+            border-radius: 3px;
+            white-space: nowrap;
+        }
+
+        /* Column 3: Current Events & Quick Links */
+        .event-list, .links-list {
+            list-style: none;
+        }
+
+        .event-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            margin-bottom: 10px;
+            line-height: 1.35;
+        }
+
+        .event-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .event-item .event-title {
+            font-weight: 600;
+            color: #222;
+            padding-right: 10px;
+        }
+
+        .event-item .event-title::before {
+            content: "›";
+            font-weight: bold;
+            color: #444;
+            margin-right: 5px;
+        }
+
+        .event-item .event-date {
+            font-size: 11px;
+            color: #555;
+            white-space: nowrap;
+        }
+
+        .quick-link-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .quick-link-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .quick-link-item span::before {
+            content: "›";
+            font-weight: bold;
+            color: #444;
+            margin-right: 6px;
+        }
+
+        .quick-link-item i {
+            font-size: 10px;
+            color: #666;
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: #07172b;
+            color: #cbd5e1;
+            font-size: 12px;
+            padding: 25px 0 15px 0;
+            border-top: 4px solid #8b0000;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1.2fr;
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col h3 {
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-col h3 i {
+            margin-right: 6px;
+            color: #38bdf8;
+            font-size: 13px;
+        }
+
+        .footer-col p {
+            line-height: 1.5;
+            color: #94a3b8;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1e293b;
+            padding-top: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            color: #94a3b8;
+        }
+
+        .footer-bottom-middle {
+            font-weight: 600;
+            color: #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Info Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-left">
+                <span><i class="fa-solid fa-envelope"></i> aidef.secunderabad@gmail.com</span>
+                <span><i class="fa-solid fa-phone"></i> 040-xxxx xxxx</span>
+            </div>
+            <div class="top-bar-right">
+                Unity &bull; Service &bull; Struggle &bull; Rights
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container header-content">
+            <!-- Left Logo -->
+            <div class="logo-box">
+                <svg width="100" height="100" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="46" fill="none" stroke="#b31010" stroke-width="3"/>
+                    <circle cx="50" cy="50" r="41" fill="none" stroke="#b31010" stroke-width="1.5" stroke-dasharray="3 2"/>
+                    <circle cx="50" cy="50" r="32" fill="#fff" stroke="#b31010" stroke-width="2"/>
+                    <path d="M 50 25 L 70 38 L 70 62 L 50 75 L 30 62 L 30 38 Z" fill="#fff" stroke="#b31010" stroke-width="1.5"/>
+                    <rect x="37" y="44" width="26" height="12" fill="#b31010" rx="2"/>
+                    <text x="50" y="53" fill="#fff" font-size="7" font-weight="bold" text-anchor="middle">AIDEF</text>
+                    <text x="50" y="90" fill="#b31010" font-size="6" font-weight="bold" text-anchor="middle">ESTD. 1953</text>
+                </svg>
+            </div>
+
+            <!-- Title Info -->
+            <div class="header-title-box">
+                <h1>AIDEF SECUNDERABAD</h1>
+                <h2>ALL INDIA DEFENCE EMPLOYEES' FEDERATION</h2>
+                <div class="tagline-location">Secunderabad Area</div>
+            </div>
+
+            <!-- Right Quote -->
+            <div class="quote-box">
+                <span class="quote-mark">“</span><strong>United We Stand, Together We Achieve</strong>
+                Justice & Dignity for All Employees.
+                <span class="quote-mark" style="margin-left: 4px; margin-right: 0;">”</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="navbar">
+        <div class="container">
+            <ul class="nav-list">
+                <li class="nav-item active"><i class="fa-solid fa-house"></i> HOME</li>
+                <li class="nav-item"><i class="fa-solid fa-users"></i> UNION NEWS</li>
+                <li class="nav-item"><i class="fa-solid fa-landmark"></i> GOVT POLICIES</li>
+                <li class="nav-item"><i class="fa-regular fa-newspaper"></i> CURRENT EVENTS</li>
+                <li class="nav-item"><i class="fa-solid fa-file-lines"></i> DOCUMENTS</li>
+                <li class="nav-item"><i class="fa-solid fa-phone"></i> CONTACT</li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <div class="container">
+            <h2 class="hero-title">VOICE OF DEFENCE CIVILIAN EMPLOYEES</h2>
+            <div class="hero-stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="hero-subtitle">
+                Committed to Protect &bull; Promote &bull; Safeguard<br>
+                the Rights and Interests of Defence Employees
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Grid Content -->
+    <main class="main-content">
+        <div class="container grid-3-col">
+
+            <!-- Column 1 -->
+            <div class="col">
+                <!-- Latest Updates -->
+                <div class="card">
+                    <div class="card-header header-red">
+                        <i class="fa-solid fa-bullhorn"></i> LATEST UPDATES
+                    </div>
+                    <div class="card-body">
+                        <!-- News Item 1 -->
+                        <a href="https://example.com/meeting-details" class="news-link" title="Read more about meeting held on 02 Sep 2026">
+                            <div class="date-badge">
+                                <span class="day">02</span>
+                                <span class="month-year">SEP<br>2026</span>
+                            </div>
+                            <div class="news-text">
+                                AIDEF Secunderabad - Meeting with Authorities held on 02 Sep 2026 <span class="badge-new">New</span>
+                            </div>
+                        </a>
+
+                        <!-- News Item 2 -->
+                        <a href="https://example.com/nps-ups-issue" class="news-link" title="Read more about representation on NPS / UPS Issue">
+                            <div class="date-badge">
+                                <span class="day">01</span>
+                                <span class="month-year">SEP<br>2026</span>
+                            </div>
+                            <div class="news-text">
+                                Important Representation Submitted on NPS / UPS Issue <span class="badge-new">New</span>
+                            </div>
+                        </a>
+
+                        <!-- News Item 3 -->
+                        <a href="https://example.com/dharna-announcement" class="news-link" title="Read more about Dharna at Indira Chowk">
+                            <div class="date-badge">
+                                <span class="day">30</span>
+                                <span class="month-year">AUG<br>2026</span>
+                            </div>
+                            <div class="news-text">
+                                Participation in Dharna at Indira Chowk Against NPS (01 Sep 2026) <span class="badge-new">New</span>
+                            </div>
+                        </a>
+                    </div>
+                    <a href="https://example.com/all-updates" class="card-footer-link">
+                        VIEW ALL UPDATES <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Important Announcements -->
+                <div class="card">
+                    <div class="card-header header-purple">
+                        <i class="fa-solid fa-bullhorn"></i> IMPORTANT ANNOUNCEMENTS
+                    </div>
+                    <div class="card-body">
+                        <p class="announcement-text">
+                            All members are requested to stay connected with AIDEF Secunderabad for regular updates on union activities, government orders and employee issues.
+                        </p>
+                    </div>
+                    <div class="card-footer-link">
+                        READ MORE <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="col">
+                <!-- Government Policies & Orders -->
+                <div class="card policies-card">
+                    <div class="policies-card-header">
+                        GOVERNMENT POLICIES & ORDERS
+                    </div>
+                    <div class="policies-grid">
+                        <div class="policy-item">
+                            <i class="fa-solid fa-indian-rupee-sign icon-pay"></i>
+                            <span>PAY &amp;<br>ALLOWANCES</span>
+                        </div>
+                        <div class="policy-item">
+                            <i class="fa-regular fa-calendar-days icon-leave"></i>
+                            <span>LEAVE &amp;<br>SERVICE RULES</span>
+                        </div>
+                        <div class="policy-item">
+                            <i class="fa-solid fa-users-rays icon-pension"></i>
+                            <span>PENSION /<br>NPS / UPS</span>
+                        </div>
+                        <div class="policy-item">
+                            <i class="fa-solid fa-person-walking-arrow-right icon-promo"></i>
+                            <span>PROMOTION /<br>MACP</span>
+                        </div>
+                        <div class="policy-item">
+                            <i class="fa-solid fa-file-signature icon-orders"></i>
+                            <span>MES / DEFENCE<br>ORDERS</span>
+                        </div>
+                        <div class="policy-item">
+                            <i class="fa-solid fa-landmark-dome icon-dopt"></i>
+                            <span>DoPT / MoD<br>ORDERS</span>
+                        </div>
+                    </div>
+                    <div class="policies-footer-link">
+                        VIEW ALL POLICIES <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Recent Documents -->
+                <div class="card">
+                    <div class="card-header header-blue">
+                        <i class="fa-regular fa-folder-open"></i> RECENT DOCUMENTS
+                    </div>
+                    <div class="card-body">
+                        <div class="doc-item">
+                            <div class="doc-left">
+                                <i class="fa-regular fa-file-pdf"></i>
+                                <span class="doc-title">AIDEF Circular - Regarding Dharna</span>
+                            </div>
+                            <span class="doc-date">02 Sep 2026</span>
+                            <span class="btn-download">DOWNLOAD</span>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-left">
+                                <i class="fa-regular fa-file-pdf"></i>
+                                <span class="doc-title">DoPT OM - Leave Rules Clarification</span>
+                            </div>
+                            <span class="doc-date">30 Aug 2026</span>
+                            <span class="btn-download">DOWNLOAD</span>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-left">
+                                <i class="fa-regular fa-file-pdf"></i>
+                                <span class="doc-title">MoD Order - Civilian Establishment</span>
+                            </div>
+                            <span class="doc-date">28 Aug 2026</span>
+                            <span class="btn-download">DOWNLOAD</span>
+                        </div>
+                        <div class="doc-item">
+                            <div class="doc-left">
+                                <i class="fa-regular fa-file-pdf"></i>
+                                <span class="doc-title">AIDEF Representation on UPS</span>
+                            </div>
+                            <span class="doc-date">27 Aug 2026</span>
+                            <span class="btn-download">DOWNLOAD</span>
+                        </div>
+                    </div>
+                    <div class="card-footer-link">
+                        VIEW ALL DOCUMENTS <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 3 -->
+            <div class="col">
+                <!-- Current Events -->
+                <div class="card">
+                    <div class="card-header header-green">
+                        <i class="fa-regular fa-newspaper"></i> CURRENT EVENTS
+                    </div>
+                    <div class="card-body">
+                        <ul class="event-list">
+                            <li class="event-item">
+                                <span class="event-title">Cabinet approves Unified Pension Scheme (UPS)</span>
+                                <span class="event-date">02 Sep 2026</span>
+                            </li>
+                            <li class="event-item">
+                                <span class="event-title">7th CPC Related Matters - Latest Update</span>
+                                <span class="event-date">01 Sep 2026</span>
+                            </li>
+                            <li class="event-item">
+                                <span class="event-title">Central Govt. Employees - DA / DR Update</span>
+                                <span class="event-date">31 Aug 2026</span>
+                            </li>
+                            <li class="event-item">
+                                <span class="event-title">Important developments in Defence Civilian Employees matters</span>
+                                <span class="event-date">30 Aug 2026</span>
+                            </li>
+                            <li class="event-item">
+                                <span class="event-title">Parliament Session - Key Decisions</span>
+                                <span class="event-date">29 Aug 2026</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-footer-link">
+                        VIEW ALL NEWS <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="card">
+                    <div class="card-header header-coral">
+                        <i class="fa-solid fa-paperclip"></i> QUICK LINKS
+                    </div>
+                    <div class="card-body">
+                        <ul class="links-list">
+                            <li class="quick-link-item">
+                                <span>AIDEF National Website</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </li>
+                            <li class="quick-link-item">
+                                <span>DoPT Website</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </li>
+                            <li class="quick-link-item">
+                                <span>MoD Website</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </li>
+                            <li class="quick-link-item">
+                                <span>7th CPC Pay Matrix</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </li>
+                            <li class="quick-link-item">
+                                <span>CGHS / ECHS</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3><i class="fa-solid fa-location-dot"></i> AIDEF SECUNDERABAD AREA</h3>
+                    <p>C/o. AIDEF Office, Secunderabad Area<br>Secunderabad - 5000XX, Telangana, India</p>
+                </div>
+                <div class="footer-col">
+                    <h3><i class="fa-solid fa-phone"></i> CONTACT US</h3>
+                    <p>040-xxxx xxxx<br>aidef.secunderabad@gmail.com</p>
+                </div>
+                <div class="footer-col">
+                    <h3><i class="fa-solid fa-users"></i> FOLLOW US</h3>
+                    <p>Stay connected with AIDEF Secunderabad through our official updates and communications.</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 AIDEF Secunderabad Area. All Rights Reserved.</div>
+                <div class="footer-bottom-middle">Unity &bull; Service &bull; Struggle &bull; Rights</div>
+                <div>Website maintained by AIDEF Secunderabad Area</div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
